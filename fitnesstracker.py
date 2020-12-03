@@ -41,13 +41,13 @@ class FitnessTracker:
             height = 6.25 * self.height
             age = 5 * self.age
             bmr = ((weight + height) - age) - 161
-    #bmi = (weight / (height * height) * 703))
+    bmi = (weight / (height * height) * 703))
     #  return bmi
-        if bmr < 18.5:
+        if bmi < 18.5:
             return "underweight"
-        elif bmr == 24:
+        elif bmi == 24:
             return "normal weight"
-        elif bmr > 25:
+        elif bmi > 25:
             return "overweight"
     
     def WorkoutRegime(self, filename):
