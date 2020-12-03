@@ -26,6 +26,29 @@ class FitnessTracker:
         Raises: ValueError: Raises a value error if user inputs a negative number.
         Returns(int): the number of calories based on bmi  
         """
+        w = input("Weight: ")
+        h = input("Height: ")
+        a = input("Age: ")
+        gender = input("Gender: ")
+
+        if gender == "female":
+            weight = 10 * self.weight
+            height = 6.25 * self.height
+            age = 5 * self.age
+            bmr = ((weight + height) - age) + 5        
+        elif gender == "male": 
+            weight = 10 * self.weight
+            height = 6.25 * self.height
+            age = 5 * self.age
+            bmr = ((weight + height) - age) - 161
+    #bmi = (weight / (height * height) * 703))
+    #  return bmi
+        if bmr < 18.5:
+            return "underweight"
+        elif bmr == 24:
+            return "normal weight"
+        elif bmr > 25:
+            return "overweight"
     
     def WorkoutRegime(self, filename):
         """
