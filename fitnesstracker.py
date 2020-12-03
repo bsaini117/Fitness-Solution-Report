@@ -79,4 +79,5 @@ class FitnessTracker:
         Returns:
             a quote from the opened file based on the three workout regime
         """
+    
         
