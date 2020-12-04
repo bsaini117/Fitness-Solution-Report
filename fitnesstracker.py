@@ -154,7 +154,7 @@ class FitnessSolutionReport:
                 print(tabulate(df[3], headers='keys', tablefmt='psql'))
                 print(tabulate(df[4], headers='keys', tablefmt='psql'))
 
-            elif self.goal == "gain":
+            elif self.objective == "gain":
                 
                 res = requests.get("https://www.jefit.com/routines/195713/scovs-routine")
                 soup = BeautifulSoup(res.content,'lxml')
@@ -222,7 +222,7 @@ class FitnessSolutionReport:
         #Three regimes depending on gain, maintain or lose
         #Different interval based on three regimes
         
-    def diet(self):
+    def Diet(self):
         '''
         This function scrapes website for the diet depending on the objective of
         the user.It provides with the recipees and the links to those recipees
@@ -259,7 +259,7 @@ class FitnessSolutionReport:
                 'Steak Gyros','Butternut Squash and Chicken Pad Thai','Honey Sriracha Turkey Meatballs',
                 'Coconut Crusted Fish Tacos','Healthy Bolognese',
                 'Lean Pulled Pork','Salmon Chowder']
-            wl_recipee = dict(zip(wl_recipee_name, wl_recipee_lst))
+            wl_recipees = dict(zip(wl_recipee_name, wl_recipee_lst))
             return(wl_recipees)
         
         #if user objective is to gain weight   
@@ -304,11 +304,10 @@ class FitnessSolutionReport:
             i = 80
             while i < 90:
                 wg_lunch = wg_anchors[i]["href"]
-                wg_lunch_lst.append(wg_lunch)
+                wg_lunch_list = wg_lunch_lst.append(wg_lunch)
                 i += 1
                 #print (wg_lunch)
             #List of weight gain lunch recipees
-            print(wg_lunch_lst)
             wg_recipee_lst_l = ['Grilled Pesto Chicken Sandwich','Turkey Stuffed Bell Peppers','Thai Shrimp Noodle Bowl',
             'Flat Iron Steak Fajita Bowl','Spicy Tuna Sushi Bowl','Asian Turkey Lettuce Wraps',
             'Teriyaki Pineapple Chicken','Steak Kabobs',
@@ -322,11 +321,10 @@ class FitnessSolutionReport:
             i = 91
             while i < 101:
                 wg_dinner = wg_anchors[i]["href"]
-                wg_dinner_lst.append(wg_dinner)
+                wg_dinner_lst = wg_dinner_lst.append(wg_dinner)
                 i += 1
                 #print (wg_dinner)
             #List of Weight gain dinner recipees
-            print(wg_dinner_lst)
             wg_recipee_lst_d = ['Tamarind-Chipotle Steak Nachos','Salmon Stir-fried Noodles','Creamy Ahi Tuna Pasta',
             'Steak Gyros','Butternut Squash and Chicken Pad Thai','Honey Sriracha Turkey Meatballs',
             'Coconut Crusted Fish Tacos','Healthy Bolognese',
@@ -381,7 +379,4 @@ def parse_args(my_args_list):
 if __name__ == '__main__':
     print(sys.argv)
     args = parse_args(sys.argv[1:])
-    print(FitnessTracker(args.age, args.weight, args.gender, args.height, args.objective, args.how_often))
-    
-
-        
+    print(FitnessSolutionReport(args.age, args.weight, args.gender, args.height, args.objective, args.how_often))
