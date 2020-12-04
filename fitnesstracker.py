@@ -11,6 +11,7 @@ class FitnessSolutionReport:
     """ calls class FitnessTracker"""
     def __init__(self, age, gender, weight, height, objective, how_often):
         """
+        This class provides a comprehensive fitness report based on user's objective to lose, mantain and gain weight
         Creates attributes and stores the information from the parameters 
         Args: 
             age (int): The user's age
