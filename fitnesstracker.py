@@ -8,7 +8,15 @@ import random
 from argparse import ArgumentParser
 
 class FitnessSolutionReport:
-    """ calls class FitnessTracker"""
+    """ calls class FitnessTracker
+        Attributes: 
+            age (int): users age
+            gender (str): the users gender
+            weight (float): The user's weight in pounds
+            height (float): The user's height in inches
+            objective (str): Whether the user wants to gain, maintain, or lose weight
+            how_often (int): How many days the user wants to work out (minimum of 3 and maximum of 6
+    """
     def __init__(self, age, gender, weight, height, objective, how_often):
         """
         This class provides a comprehensive fitness report based on user's objective to lose, mantain and gain weight
