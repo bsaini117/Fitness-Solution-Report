@@ -312,7 +312,7 @@ class FitnessSolutionReport:
             'Flat Iron Steak Fajita Bowl','Spicy Tuna Sushi Bowl','Asian Turkey Lettuce Wraps',
             'Teriyaki Pineapple Chicken','Steak Kabobs',
             'New England Style Shrimp Rolls','Salmon Grain Bowl']
-            wg_lunch_recipees = dict(zip(wg_recipee_lst_l, wg_breakfast_lst))
+            wg_lunch_recipees = dict(zip(wg_recipee_lst_l, wg_lunch_lst))
             return(wg_lunch_recipees)
    
 
@@ -329,7 +329,7 @@ class FitnessSolutionReport:
             'Steak Gyros','Butternut Squash and Chicken Pad Thai','Honey Sriracha Turkey Meatballs',
             'Coconut Crusted Fish Tacos','Healthy Bolognese',
             'Lean Pulled Pork','Salmon Chowder']
-            wg_dinner_recipees = dict(zip(wg_recipee_lst_d, wg_breakfast_lst))
+            wg_dinner_recipees = dict(zip(wg_recipee_lst_d, wg_dinner_lst))
             return(wg_dinner_recipees)
         
         
