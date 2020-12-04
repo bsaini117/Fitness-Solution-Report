@@ -10,11 +10,15 @@ from argparse import ArgumentParser
 class FitnessSolutionReport:
     """ calls class FitnessTracker"""
     def __init__(self, age, gender, weight, height, objective, how_often):
-        """Creates attributes and stores the information from the parameters 
-            Args: 
-                age(int): the number of the person's age
-                gender (str): the name of the gender
-                weight(int): the weight of. user 
+        """
+        Creates attributes and stores the information from the parameters 
+        Args: 
+            age (int): The user's age
+            gender (str): The user's gender
+            weight (float): The user's weight in pounds
+            height (float): The user's height in inches
+            objective (str): Whether the user wants to gain, maintain, or lose weight
+            how_often (int): How many days the user wants to work out (minimum of 3 and maximum of 6)
         """
         self.age = age
         self.gender = gender
@@ -30,10 +34,10 @@ class FitnessSolutionReport:
         Calculates the number of calories a person should have daily and bmi depending on users inputs
             
         Returns:
-            f-string(str): string containing infomration about the users bmi, bmr, and its prediction
-            bmi(float): the bmi as a number from the users inputs based on the formula
-            bmr(float): the amount of calorie intake a user should have daily based on inputs and the bmr formula
-            prediction(str): statement of wheather a user is underweight, normal weight, or over weight
+            f-string (str): String containing infomration about the users BMI, BMR, and its prediction
+            bmi (float): The BMI as a number from the user's input based on the formula
+            bmr (float): The amount of calorie intake the user should have daily based on inputs and the BMR formula
+            prediction (str): Statement of wheather a user is underweight, normal weight, or over weight
             depending on inputs, gender and its corresponding formula calculation.   
         """
         
