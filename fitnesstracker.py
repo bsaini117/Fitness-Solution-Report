@@ -9,8 +9,9 @@ from argparse import ArgumentParser
 
 class FitnessSolutionReport:
     """ 
-    calls class FitnessTracker
-       Attributes: 
+        Creates attributes and stores the information from the parameters 
+      
+        Attributes: 
          age (int): users age
          gender (str): the users gender
          weight (float): The user's weight in pounds
