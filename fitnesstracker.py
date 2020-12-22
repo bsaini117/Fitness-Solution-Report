@@ -90,12 +90,8 @@ class FitnessSolutionReport:
     def CalorieCalculator(self, age, gender, weight, height):
         """
         Calculates the number of calories a person should have daily and BMI depending on user inputs
-        Returns:
-            F-String (str): String containing infomration about the users BMI, BMR, and its prediction
-            BMI (float): The BMI as a number from the user's input based on the formula
-            BMR (float): The amount of calorie intake the user should have daily based on inputs and the BMR formula
-            Prediction (str): Statement of wheather a user is underweight, normal weight, or overweight
-            depending on inputs and their corresponding formula calculations.
+        Args:
+            
         """
 
         l = []
@@ -127,7 +123,7 @@ class FitnessSolutionReport:
 
         l.append(d_ret)
         df = pd.DataFrame(l)
-        return df
+        print(df)
     
     
        
@@ -246,11 +242,10 @@ class FitnessSolutionReport:
             Scrapes diet tables from provided URLS and displays them in pandas Dataframe
             Args:
                 objective (str): a string containing the objective
-            Returns: returns a diet and calorie recommendation based on the user's preferences
             Side Effects: 
-                    Headings Print Statement: prints out a heading that makes the output easier to see.
-                    Inner Headings Print Statement: changes output to be in bold text.
-                    J loop Print Statement: Prints out the dataframe.
+                    Print Statement (Line ___): Makes output easier to see
+                    Print Statement (Line ___): Changes output text to bold and prints out heading with necessary information
+                    Print Statement (Line ___): Prints out the dataframe
         """
         
         if self.objective == "lose":
@@ -291,11 +286,13 @@ class FitnessSolutionReport:
 
     def WeightManage(self, weight, objective):
         """
-            Plots the graph against of weight against weeks
+            Plots a graph expressing how much weight the user would gain/lose/maintain over 4 weeks
             Args:
                 weight (list): List of weight you want to plot against
                 weeks (list): List of weeks you want to plot against
                 obj (str): a string containing the objective
+            Side Effects:
+                Shows graph output
         """
         
         if self.objective == 'lose':
@@ -322,6 +319,9 @@ class FitnessSolutionReport:
 
     def FitnessResources(self, filename):
         """
+        To obtain author and URL information of fitness resources from file and organize them into a dataframe
+        Args:
+            filename: Path to file
         Side Effects: Prints out a magazine that is taken from the website and stored the r dictionary
         """
         r = []
