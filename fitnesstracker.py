@@ -1,3 +1,4 @@
+import re
 import requests
 import sys
 import matplotlib.pyplot as plt
@@ -18,8 +19,8 @@ class FitnessSolutionReport:
         Args: 
             age (int): The user's age
             gender (str): The user's gender
-            weight (float): The user's weight in pounds
-            height (float): The user's height in inches
+            weight (float): The user's weight in kilograms
+            height (float): The user's height in centimeters
             objective (str): Whether the user wants to gain, maintain, or lose weight
             how_often (int): How many days the user wants to work out (minimum of 3 and maximum of 6)
         """
@@ -37,7 +38,7 @@ class FitnessSolutionReport:
         Scrapes data from the given URL, converts it into a Pandas dataframe, and returns it
         Args: 
             url: The URL of the website from which the data is going to be scraped
-            days (dict):
+            days (int): Amount of days user wants to workout (pulled from WorkoutRegime)
         Returns: Updated dataframe based on the input of the the user and the corresponding website with the fitness regime
         """
         
@@ -91,7 +92,12 @@ class FitnessSolutionReport:
         """
         Calculates the number of calories a person should have daily and BMI depending on user inputs
         Args:
-            
+            age (int): The user's age
+            gender (str): The user's gender
+            weight (float): The user's weight in kilograms
+            height (float): The user's height in centimeters
+        Side Effects:
+            Prints dataframe featuring BMR, BMI, and weight status
         """
 
         l = []
@@ -129,12 +135,13 @@ class FitnessSolutionReport:
        
     def WorkoutRegime(self):
         """
-        Provides user with three types of workout regimes based on user goals.
+        Provides user with workout regime based on their objective and how often they want to workout.
         Args:
             Filename: Path to the file
-        Returns:
-            Dict (dict): A dictionary whose keys are the workouts and values are the repitions
-        Side Effects: Prints a workout that is catered to the user's preferences 
+        Side Effects: 
+            Calls DataframeConverter() function
+            Adds column to dataframe specifying days using df.index()
+            Prints a workout that is catered to the user's preferences 
         """
         
         #FOR WORKING OUT THREE DAYS
@@ -243,9 +250,10 @@ class FitnessSolutionReport:
             Args:
                 objective (str): a string containing the objective
             Side Effects: 
-                    Print Statement (Line ___): Makes output easier to see
-                    Print Statement (Line ___): Changes output text to bold and prints out heading with necessary information
-                    Print Statement (Line ___): Prints out the dataframe
+                    Makes output easier to see by printing dashed line
+                    Prints part of output text in bold, then prints out heading with necessary information
+                    Prints out dataframe
+                    Prints new lines for organizational purposes
         """
         
         if self.objective == "lose":
@@ -288,9 +296,8 @@ class FitnessSolutionReport:
         """
             Plots a graph expressing how much weight the user would gain/lose/maintain over 4 weeks
             Args:
-                weight (list): List of weight you want to plot against
-                weeks (list): List of weeks you want to plot against
-                obj (str): a string containing the objective
+                weight (float): The user's weight in kilograms
+                objective (str): Whether the user wants to gain, maintain, or lose weight
             Side Effects:
                 Shows graph output
         """
