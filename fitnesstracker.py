@@ -129,6 +129,9 @@ class FitnessSolutionReport:
 
         l.append(d_ret)
         df = pd.DataFrame(l)
+        print('-' * 60)
+        print("Information regarding the biology of your body, along with your weight status")
+        print('-' * 60)
         print(df)
     
     
@@ -145,6 +148,10 @@ class FitnessSolutionReport:
         """
         
         #FOR WORKING OUT THREE DAYS
+
+        print('-' * 60)
+        print("A curated workout plan based on your goals, along with how often you plan to work on them.")
+        print('-' * 60)
 
         if self.how_often == 3:
             
@@ -256,6 +263,10 @@ class FitnessSolutionReport:
                     Prints new lines for organizational purposes
         """
         
+        print('-' * 60)
+        print("A custom-made diet plan based on your goals (only applicale to users who want to gain/lose weight).")
+        print('-' * 60)
+        
         if self.objective == "lose":
             url = 'https://www.myfooddata.com/articles/gourmet-low-carb-high-protein-weight-loss-meal-plans.php'
             num_of_tables = 11
@@ -302,6 +313,10 @@ class FitnessSolutionReport:
                 Shows graph output
         """
         
+        print('-' * 60)
+        print("A graph visualizing the way your weight will change if you follow the diet plan above.")
+        print('-' * 60)
+        
         if self.objective == 'lose':
             lbl = 'Weight Lost from Cardio'
             weight = [self.weight, self.weight-2, self.weight-4, self.weight-6]
@@ -331,6 +346,11 @@ class FitnessSolutionReport:
             filename: Path to file
         Side Effects: Prints out a magazine that is taken from the website and stored the r dictionary
         """
+        
+        print('-' * 60)
+        print("A list of hand-selected fitness resources that will help to answer any questions you might have regarding the above information.")
+        print('-' * 60)
+        
         r = []
         with open(filename, 'r', encoding = "utf-8") as f:
             for line in f:
