@@ -38,6 +38,7 @@ class FitnessSolutionReport:
         Args: 
             url: The URL of the website from which the data is going to be scraped
             days (dict):
+        Returns: Updated dataframe based on the input of the the user and the corresponding website with the fitness regime
         """
         
         res = requests.get(url)
@@ -137,7 +138,7 @@ class FitnessSolutionReport:
             Filename: Path to the file
         Returns:
             Dict (dict): A dictionary whose keys are the workouts and values are the repitions
-
+        Side Effects: Prints a workout that is catered to the user's preferences 
         """
         
         #FOR WORKING OUT THREE DAYS
@@ -245,6 +246,11 @@ class FitnessSolutionReport:
             Scrapes diet tables from provided URLS and displays them in pandas Dataframe
             Args:
                 objective (str): a string containing the objective
+            Returns: returns a diet and calorie recommendation based on the user's preferences
+            Side Effects: 
+                    Headings Print Statement: prints out a heading that makes the output easier to see.
+                    Inner Headings Print Statement: changes output to be in bold text.
+                    J loop Print Statement: Prints out the dataframe.
         """
         
         if self.objective == "lose":
@@ -316,6 +322,7 @@ class FitnessSolutionReport:
 
     def FitnessResources(self, filename):
         """
+        Side Effects: Prints out a magazine that is taken from the website and stored the r dictionary
         """
         r = []
         with open(filename, 'r', encoding = "utf-8") as f:
